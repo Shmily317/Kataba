@@ -5,12 +5,11 @@ import lombok.Data;
 /**
  * projectName: Kataba
  * author: HDY
- * time: 2020/10/19 17:36
+ * time: 2020/10/20 16:48
  * description:
  */
 @Data
-public class UserDto {
+public class SmsRCodeDto {
     private String phone;
-    private String nname;   //昵称(账号)
-    private String pwd;    //密码
+    private int code;
 }

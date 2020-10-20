@@ -16,7 +16,7 @@ public class StrUtil {
      * @param strs
      * @return true 非空   false 空
      */
-    public static boolean checkEmpty(String... strs) {
+    public static boolean checkNoEmpty(String... strs) {
         boolean r = true;
         for (String str : strs) {
             if (str == null || str.length() == 0) {

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * projectName: Kataba
@@ -13,6 +14,7 @@ import lombok.Data;
  */
 @Data
 @TableName("t_user")
+@NoArgsConstructor
 public class User {
     @TableId(type = IdType.AUTO)
     private Integer id;
@@ -20,4 +22,11 @@ public class User {
     private String nickname;
     private String password;
     private int flag;//标记  1有效    2无效
+
+    public User(String phone, String nickname, String password, int flag) {
+        this.phone = phone;
+        this.nickname = nickname;
+        this.password = password;
+        this.flag = flag;
+    }
 }
