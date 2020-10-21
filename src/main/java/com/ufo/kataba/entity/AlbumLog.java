@@ -3,6 +3,7 @@ package com.ufo.kataba.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +24,7 @@ public class AlbumLog {
     private Integer aid;
     private String info;
     private Integer type;
+    @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
     private Date ctime;
 
     public AlbumLog(Integer aid, String info, Integer type, Date ctime) {

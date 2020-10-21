@@ -19,13 +19,16 @@ import org.json.JSONObject;
  */
 
 public class SmsUtil {
-
+    //LTAI4GGEDdAHoscQnVrZk3Ta U7l8jYLfl4ALq1xTySDa8x4RoATUjF
+    private static final String accessKeyId = "";
+    private static final String accessKeySecret = "";
+    //短信发送
     public static boolean sendRCode(String phone, int code) {
 
         DefaultProfile profile = DefaultProfile.
                 getProfile("cn-hangzhou",
-                        "<>",//accessKeyId
-                        "<>"); //accessSecret
+                        accessKeyId,
+                        accessKeySecret);
         //实例化短信发送对象
         IAcsClient client = new DefaultAcsClient(profile);
         //构建请求对象

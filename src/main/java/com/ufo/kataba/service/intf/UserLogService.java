@@ -13,5 +13,6 @@ public interface UserLogService {
     //新增
     R save(UserLog log);
     //查询
+    R all();
 
 }

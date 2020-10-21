@@ -12,8 +12,9 @@ import org.json.JSONObject;
  */
 public class TokenUtil {
     //获取用户id
-    public static int getUid(String token) {
+    public static int getUid(String token){
         return new JSONObject(JedisUtil.getInstance().STRINGS.
-                get(RedisKeyConfig.LOGIN_TOKEN + token)).getInt("id");
+                get(RedisKeyConfig.LOGIN_TOKEN+token)).getInt("id");
     }
 }
+

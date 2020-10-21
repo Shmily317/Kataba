@@ -100,12 +100,12 @@ public class UserServiceImpl implements UserService {
         User user = userDao.selectByNamePhone(dto.getNname(),dto.getPhone());
         if (user == null) {
             //密码 密文 aes
-            dto.setPwd(EncryptUtil.aesdec(pk,dto.getPwd()));
+            dto.setPwd(EncryptUtil.aesenc(pk,dto.getPwd()));
             //新增
-            User u = new User(dto.getPhone(),dto.getPwd(),dto.getNname(),1);
-            if (userDao.insert(user) > 0){
+            User u = new User(dto.getPhone(),dto.getNname(),dto.getPwd(),1);
+            if (userDao.insert(u) > 0){
                 //记录日志
-                UserLog userLog = new UserLog(user.getId(),1,"注册新用户",new Date());
+                UserLog userLog = new UserLog(u.getId(),1,"注册新用户",new Date());
                 logDao.insert(userLog);
                 return R.ok();
             }
@@ -133,6 +133,9 @@ public class UserServiceImpl implements UserService {
                 JedisUtil.getInstance().STRINGS.setEx(RedisKeyConfig.LOGIN_TOKEN+token,RedisKeyConfig.LOGIN_TIME,new JSONObject(user).toString());
                 //记录登陆过的账号信息
                 JedisUtil.getInstance().STRINGS.setEx(RedisKeyConfig.LOGIN_USER+user.getId(),RedisKeyConfig.LOGIN_TIME,token);
+                //记录日志
+                UserLog userLog = new UserLog(user.getId(),2,"登录"+user.getId(),new Date());
+                logDao.insert(userLog);
                 //5.返回结果
                 return R.ok(token);
             }

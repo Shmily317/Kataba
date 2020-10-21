@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @SpringBootApplication
-@MapperScan("com.ufo.kataba.dao")
-@EnableTransactionManagement
+@MapperScan(basePackages ="com.ufo.kataba.dao")//扫描持久层
+@EnableTransactionManagement//开启事务管理器
 public class KatabaApplication {
 
     public static void main(String[] args) {
