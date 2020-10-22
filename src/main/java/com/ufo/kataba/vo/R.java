@@ -37,6 +37,10 @@ public class R<T> {
     public static R fail(){
         return setR(RType.失败.getVal(),"Fail",null);
     }
+    //失败
+    public static R fail(String msg){
+        return setR(RType.失败.getVal(),msg,null);
+    }
 
 
     public int getCode() {

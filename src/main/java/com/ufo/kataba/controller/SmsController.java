@@ -18,8 +18,8 @@ public class SmsController {
     @Autowired
     private SmsLogService smsLogService;
     //发送短信验证
-    @PostMapping("/sendrcode/{phone}")
-    public R sendRCode(@PathVariable String phone){
+    @PostMapping("/sendrcode.do")
+    public R sendRCode( String phone){
         return smsLogService.sendRCode(phone);
     }
     //校验短信验证

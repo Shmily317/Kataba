@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ufo.kataba.dao.PictureDao">
+
+    <update id="updateInfo" parameterType="com.ufo.kataba.dto.PictureUpdateDto">
+        update t_picture
+        <set>
+            <if test="title!=null">
+                title=#{title},
+            </if>
+            <if test="info!=null">
+                info=#{info},
+            </if>
+            <if test="iurl!=null">
+                iurl=#{iurl},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    
+
+</mapper>
