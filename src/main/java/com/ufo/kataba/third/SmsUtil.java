@@ -19,7 +19,7 @@ import org.json.JSONObject;
  */
 
 public class SmsUtil {
-    //LTAI4GGEDdAHoscQnVrZk3Ta U7l8jYLfl4ALq1xTySDa8x4RoATUjF
+    //
     private static final String accessKeyId = "";
     private static final String accessKeySecret = "";
     //短信发送
